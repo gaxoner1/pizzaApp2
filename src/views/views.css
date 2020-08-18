@@ -1,0 +1,28 @@
+.mealGrid > div {
+  flex-basis: calc(50% - 40px);
+}
+
+.mealGrid {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card {
+  margin: 20px;
+}
+
+.menuHead {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  border: none;
+  padding: 10px;
+}
