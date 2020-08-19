@@ -24,7 +24,9 @@ const ExternalApi = () => {
 
  const callSecureApi = async () => {
      try {
-       const token = await getAccessTokenSilently();
+       const token = await getAccessTokenSilently({
+          audience: 'sample.express-api.com'
+       });
        console.log(`token: ${token}`)
        const response = await fetch(
          `${apiUrl}/api/private-message`,
@@ -36,9 +38,8 @@ const ExternalApi = () => {
      );
      console.log('------')
       const responseData = await response.json();
+      console.log(`responseData: ${responseData}`)
       setMessage(responseData);
-      //console.log(responseData)
-
     } catch (error) {
       setMessage(error.message);
     }

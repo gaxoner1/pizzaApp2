@@ -9,18 +9,23 @@ const Auth0ProviderWithHistory = ({ children }) => {
 
   const history = useHistory();
 
-  const onRedirectCallback = (appState) => {
+  const onRedirect Callback = (appState) => {
     history.push(appState?.returnTo || window.location.pathname);
   };
 
   return (
     <Auth0Provider
-      domain={domain}
-      clientId={clientId}
-      redirectUri={window.location.origin}
-      onRedirectCallback={onRedirectCallback}
-      audience={audience}
-
+      // domain={domain}
+      // clientId={clientId}
+      // redirectUri={window.location.origin}
+      // onRedirectCallback={onRedirectCallback}
+      // audience={audience}
+      domain="dev-99jq8v4p.us.auth0.com"
+       clientId="YJf7yDFIzxje3UNtEYih2sa54Vgg6OPX"
+       redirectUri={window.location.origin}
+       //audience='https://dev-99jq8v4p.us.auth0.com/api/v2/'
+       audience="sample.express-api.com"
+       scope="read:current_user read:message update:current_user_metadata"
     >
       {children}
     </Auth0Provider>

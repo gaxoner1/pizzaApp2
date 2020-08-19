@@ -9,10 +9,12 @@ const Auth0ProviderWithHistory = ({ children }) => {
 
   const history = useHistory();
 
+  //TODO: Look into this:
   const onRedirectCallback = (appState) => {
     history.push(appState?.returnTo || window.location.pathname);
   };
 
+//pass props to reactDom >> App root
   return (
     <Auth0Provider
       domain={domain}
@@ -20,6 +22,8 @@ const Auth0ProviderWithHistory = ({ children }) => {
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
       audience={audience}
+      scope="read:current_user update:current_user_metadata"
+
     >
       {children}
     </Auth0Provider>

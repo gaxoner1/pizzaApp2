@@ -13,16 +13,20 @@ const SendOrder = () => {
 
  const placeOrder = async () => {
      try {
-       const token = await getAccessTokenSilently();
-
+       //FEEDBACK: SHOULD BE EXPLICIT
+       const token = await getAccessTokenSilently({
+         audience: 'sample.express-api.com',
+         scope: "read:current_user",
+       });
+      //It is likely it is an opaque access token and not jwt
+       console.log(`debugg token/ JWT call: ${token}`)
        const response = await fetch(`${apiUrl}/order`, {
          headers: {
            Authorization: `Bearer ${token}`,
          },
        });
       const responseData = await response.json();
-      const tempVar = setMessage(responseData);
-      console.log(tempVar)
+      console.log(`responseData: ${responseData}`)
     } catch (error) {
       setMessage(error.message);
     }
