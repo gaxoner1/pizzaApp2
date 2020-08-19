@@ -27,19 +27,11 @@ const MainNav = () => (
     </Nav.Link>
     <Nav.Link
       as={RouterNavLink}
-      to="/external-api"
+      to="/order"
       exact
       activeClassName="router-link-exact-active"
     >
-      External API
-    </Nav.Link>
-    <Nav.Link
-      as={RouterNavLink}
-      to="/Menu"
-      exact
-      activeClassName="router-link-exact-active"
-    >
-      Menu
+      Order
     </Nav.Link>
   </Nav>
 );

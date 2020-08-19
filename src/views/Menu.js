@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./views.css";
 import Button from 'react-bootstrap/Button'
 import { Card } from "react-bootstrap";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Menu = () => {
   const mealItem = [
@@ -27,6 +29,7 @@ const Menu = () => {
       }
     ];
 
+
   const renderMenu = (item, index) => {
     return (
       <Card style={{ width: "18rem" }} key={index} className="box">
@@ -34,7 +37,7 @@ const Menu = () => {
         <Card.Body>
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.text}</Card.Text>
-          <Button variant="primary">Order</Button>
+          {/* <Button variant="primary">Order</Button>*/}
         </Card.Body>
       </Card>
     );

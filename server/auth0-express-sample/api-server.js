@@ -44,19 +44,19 @@ const checkJwt = jwt({
 //app.use(jwtCheck);
 
 
-app.get("/api/public-message", (req, res) => {
-  res.send({
-    msg: "The API doesn't require an access token to share this message.",
-  });
-});
+// app.get("/api/public-message", (req, res) => {
+//   res.send({
+//     msg: "The API doesn't require an access token to share this message.",
+//   });
+// });
+//
+// app.get("/api/private-message", checkJwt, (req, res) => {
+//   res.send({
+//     msg: "The API successfully validated your access token.",
+//   });
+// });
 
-app.get("/api/private-message", checkJwt, (req, res) => {
-  res.send({
-    msg: "The API successfully validated your access token.",
-  });
-});
-
-//pass checkJwt to get req to ensure auth.
+// pass checkJwt to get req to ensure auth.
 // app.get("/order", checkJwt, (req, res) => {
 //   res.send({
 //     msg: "Order Recieved.",
