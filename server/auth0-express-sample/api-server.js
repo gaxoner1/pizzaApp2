@@ -6,12 +6,14 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
-var jwtAuthz = require('express-jwt-authz');
+const jwtAuthz = require('express-jwt-authz
+const path = require('path')
+
 
 
 const app = express();
 
-const port = process.env.API_PORT; // TODO change to 5000 for heroku
+const port = process.env.API_PORT || 5000;
 const appOrigin = process.env.APP_ORIGIN;
 const audience = process.env.AUTH0_AUDIENCE;
 const issuer = process.env.AUTH0_ISSUER;
@@ -63,10 +65,19 @@ const checkJwt = jwt({
 //   });
 // });
 const checkScopes = jwtAuthz([ 'read:messages' ]);
+
 app.get('/order', checkJwt, checkScopes, function(req, res) {
   res.json({ message: "Order recieved" });
 });
 
+//check if in prod and pass build folder to serve app.
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('/build'));
 
+  app.get('*', (req,res) => {
+    res.sendFile(path.join(_dirname, 'auth0-express-sample/build/index.html' )); //pass relative path
+  })
+
+}
 
 app.listen(port, () => console.log(`API Server listening on port ${port}`));

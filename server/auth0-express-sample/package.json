@@ -5,6 +5,7 @@
   "main": "api-server.js",
   "scripts": {
     "start": "node api-server.js"
+    "heroku-postbuild":"cd ../../src && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

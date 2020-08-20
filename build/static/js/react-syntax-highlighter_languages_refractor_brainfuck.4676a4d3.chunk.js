@@ -1,0 +1,2 @@
+(this.webpackJsonpPizza_app2=this.webpackJsonpPizza_app2||[]).push([[18],{155:function(a,e,t){"use strict";function n(a){a.languages.brainfuck={pointer:{pattern:/<|>/,alias:"keyword"},increment:{pattern:/\+/,alias:"inserted"},decrement:{pattern:/-/,alias:"deleted"},branching:{pattern:/\[|\]/,alias:"important"},operator:/[.,]/,comment:/\S+/}}a.exports=n,n.displayName="brainfuck",n.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_brainfuck.4676a4d3.chunk.js.map
